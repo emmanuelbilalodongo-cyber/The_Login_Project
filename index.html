@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUST Login & Create Account</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+    body {
+      background: linear-gradient(145deg, #002f4f 0%, #004e7c 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+    }
+    /* Hide the radio buttons */
+    .tab-switch {
+      display: none;
+    }
+    .brand-panel {
+      flex: 1 1 320px;
+      background: linear-gradient(135deg, #002b47 0%, #003f63 100%);
+      padding: 2.8rem 2.2rem;
+      color: white;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      border-top-left-radius: 2.5rem;
+      border-bottom-left-radius: 2.5rem;
+    }
+    .brand-panel h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    .brand-panel p {
+      font-size: 1rem;
+      color: #cbdbe9;
+      margin-bottom: 2rem;
+    }
+    .quote {
+      font-style: italic;
+      border-left: 4px solid #ffc857;
+      padding-left: 1rem;
+      color: #e0edfa;
+    }
+    .form-panel {
+      flex: 1 1 420px;
+      background: #ffffff;
+      padding: 2.5rem 2.2rem;
+      border-top-right-radius: 2.5rem;
+      border-bottom-right-radius: 2.5rem;
+    }
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #e9edf2;
+      padding-bottom: 0.5rem;
+    }
+    .tab-btn {
+      padding: 0.8rem 1.6rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #6b7a8c;
+      cursor: pointer;
+      border-radius: 2rem;
+      transition: all 0.2s;
+    }
+    /* When login radio is checked, highlight login tab */
+    #tab-login:checked ~ .container .tab-btn[for="tab-login"],
+    /* When signup radio is checked, highlight signup tab */
+    #tab-signup:checked ~ .container .tab-btn[for="tab-signup"] {
+      background: #003f63;
+      color: white;
+    }
+    /* Hide both forms by default */
+    .auth-form {
+      display: none;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    /* Show login form when login radio is checked */
+    #tab-login:checked ~ .container #loginForm {
+      display: flex;
+    }
+    /* Show signup form when signup radio is checked */
+    #tab-signup:checked ~ .container #signupForm {
+      display: flex;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .input-group label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e2e42;
+    }
+    .input-group input {
+      padding: 0.9rem 1.2rem;
+      border: 1.5px solid #dae0e8;
+      border-radius: 14px;
+      font-size: 1rem;
+      background: #f9fbfd;
+      outline: none;
+    }
+    .input-group input:focus {
+      border-color: #007c6767;
+      background: white;
+    }
+    .actions-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+    }
+    .btn-primary {
+      background: #003f63;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #007c61;
+    }
+    .legal-note {
+      margin-top: 1.8rem;
+      font-size: 0.78rem;
+      color: #8496a8;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- These radio buttons control the tabs -->
+  <input type="radio" name="tab" id="tab-login" class="tab-switch" checked>
+  <input type="radio" name="tab" id="tab-signup" class="tab-switch">
+  <div class="container">
+    <!-- Left Side -->
+    <div class="brand-panel">
+      <h2>MUST</h2>
+      <p>MBARARA UNIVERSITY OF SCIENCE & TECHNOLOGY</p>
+      <h1>Welcome back,<br>Innovator.</h1>
+      <p>Access your student portal, course materials, and campus resources all in one place.</p>
+      <div class="quote">Knowledge for development</div>
+    </div>
+    <!-- Right Side -->
+    <div class="form-panel">
+              <!-- Tabs -->
+      <div class="tabs">
+        <label for="tab-login" class="tab-btn">Login</label>
+        <label for="tab-signup" class="tab-btn">Create Account</label>
+      </div>
+      <!-- LOGIN FORM -->
+      <form id="loginForm" class="auth-form">
+        <div class="input-group">
+          <label>University email</label>
+          <input type="email" placeholder="student@must.ac.ug" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" required>
+        </div>
+        <div class="actions-row">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#" style="color: #004e7c;">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-primary">Sign in</button>
+      </form>
+      <!-- SIGNUP FORM -->
+      <form id="signupForm" class="auth-form">
+        <div class="input-group">
+          <label>Full name</label>
+          <input type="text" placeholder="Emma Bilal" required>
+        </div>
+        <div class="input-group">
+          <label>University email</label>
+          <input type="email" placeholder="student@must.ac.ug" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" placeholder="Create a strong password" required>
+        </div>
+        <button type="submit" class="btn-primary">Create account</button>
+      </form>
+      <!-- Footer -->
+      <div class="legal-note">
+        By continuing, you agree to MUST's Acceptable Use Policy.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+     
+      
